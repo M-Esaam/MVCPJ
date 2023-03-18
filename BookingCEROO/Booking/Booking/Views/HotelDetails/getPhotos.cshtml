@@ -1,0 +1,234 @@
+﻿@using BookingLibrary.Models;
+@using RepositoryModel.Models;
+@model Hotel
+
+@{
+   Layout = "~/Views/Shared/_ContentLayout.cshtml";
+   
+}
+<section class="ftco-section">
+   @* @RenderBody()*@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-md-12 ftco-animate">
+                        <h2 class="mb-4">Hotel Photos</h2>
+
+                        <div class="single-slider owl-carousel">
+                            @foreach (var item in ViewBag.photo)
+                            {
+                            <div class="item">
+                                <div class="room-img" style="background-image: url(/Images/@item);"></div>
+                            </div>
+                            }
+                            @*<div class="item">
+                                <div class="room-img" style="background-image: url(/images/room-2.jpg);"></div>
+                            </div>
+                            <div class="item">
+                                <div class="room-img" style="background-image: url(/images/room-3.jpg);"></div>
+                            </div>*@
+                        </div>
+                    </div>
+                    <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
+                       
+                         <p>@Model.Description</p>
+                        @*  <div class="d-md-flex mt-5 mb-5">
+                        <ul class="list">
+                        <li><span>Max:</span> 3 Persons</li>
+                        <li><span>Size:</span> 45 m2</li>
+                        </ul>
+                        <ul class="list ml-md-5">
+                        <li><span>View:</span> Sea View</li>
+                        <li><span>Bed:</span> 1</li>
+                        </ul>
+                        </div> *@
+                    </div>
+
+                    <div class="col-md-12 room-single ftco-animate mb-5 mt-4">
+                        <h3 class="mb-4">Take A Tour</h3>
+                        <div class="block-16">
+                            <figure>
+                                <img src="/images/room-4.jpg" alt="Image placeholder" class="img-fluid">
+                                <a href="https://vimeo.com/45830194" class="play-button popup-vimeo"><span class="icon-play"></span></a>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
+                        <h4 class="mb-4">Review &amp; Ratings</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form method="post" class="star-rating">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> 100 Ratings</span></p>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i> 30 Ratings</span></p>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 5 Ratings</span></p>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+         
+                    <div class="col-md-12 room-single ftco-animate mb-5 mt-5">
+                        <h4 class="mb-4">Available Room</h4>
+                        <div class="row">
+                          
+                            <div class="col-sm col-md-6 ftco-animate">
+                                <div class="room">
+                                    <a href="rooms.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/room-1.jpg);">
+                                        <div class="icon d-flex justify-content-center align-items-center">
+                                            <span class="icon-search2"></span>
+                                        </div>
+                                    </a>
+                                    <div class="text p-3 text-center">
+                                        <h3 class="mb-3"> <a href="rooms.html">suit Room</a></h3>
+                                        <p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+                                        <hr>
+                                        <p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+                                    </div>
+                                </div>
+                            </div>    
+                            @foreach (Normal_Room item in ViewBag.normal){
+                            <div class="col-sm col-md-6 ftco-animate">
+                                <div class="room">
+                                    
+                                    @foreach(var itemimages in @item.Room.images)
+                                        {
+                                            
+                                            <a href="rooms.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/images/@itemimages.Name);">
+                                                    <div class="icon d-flex justify-content-center align-items-center">
+                                                    <span class="icon-search2"></span>
+                                                    </div>
+                                            </a>
+                                        }
+                                       
+                                    <div class="text p-3 text-center">
+                                            <a href="rooms.html">@item.Type_Of_Room</a>
+                                        <p><span class="price mr-2">@item.Room.Cost_Per_Night</span> <span class="per">per night</span></p>
+                                        <hr>
+                                        <p class="pt-1"><a href="room-single.html" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon fa fa-search"></span>
+                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <div class="categories">
+                        <h3>Address</h3>
+                        <li><a href="#">Country <span>@Model.Country</span></a></li>
+                        <li><a href="#">City <span>@Model.City</span></a></li>
+                        <li><a href="#">Street <span>@Model.Street</span></a></li>
+                        @*<li><a href="#">Villa <span>@Model.Street</span></a></li>
+                        <li><a href="#">Apartment <span>(14)</span></a></li>
+                        <li><a href="#">Condominium <span>(140)</span></a></li>*@
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate" >
+                    <h3>Recent Reviews</h3>
+                    @{
+                        int count =0;
+
+                        if (count <= 5)
+                        {
+                            foreach (Review item in Model.reviews)
+                            {
+                                <div class="block-21 mb-4 d-flex" >
+                                    <a class="blog-img mr-4" style="background-image: url(https://images.freeimages.com/fic/images/icons/1994/vista_style_business_and_data/256/users.png);"></a>
+                                    <div class="text" id="AllCmnt">
+                                        <h5 class="heading" id="appuserName">@item.Customer.AppUser.UserName</h5>
+                                        <h2 class="heading" id=" txt">@item.Text</h2>                                     
+                                    </div>
+                                </div>
+                                count++;
+                            }
+                        }
+                    }
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">dish</a>
+                        <a href="#" class="tag-cloud-link">menu</a>
+                        <a href="#" class="tag-cloud-link">food</a>
+                        <a href="#" class="tag-cloud-link">sweet</a>
+                        <a href="#" class="tag-cloud-link">tasty</a>
+                        <a href="#" class="tag-cloud-link">delicious</a>
+                        <a href="#" class="tag-cloud-link">desserts</a>
+                        <a href="#" class="tag-cloud-link">drinks</a>
+                    </div>
+                </div>
+               
+                <a href="~/Payment/Index" class="tag-cloud-link"> Make Reserve Now </a>
+                <div class="sidebar-box ftco-animate">
+                    <h3>Enter Comment here</h3>                 
+                    Comment : <textarea id="cmnt" name="cmnt" class="form form-control"></textarea>
+                    <br />
+                    <input type="button" value="send" class="btn btn-info" onclick="SendComment()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- .section -->
+@section Scripts{
+      <script src="~/lib/microsoft-signalr/signalr.min.js"></script>
+      <script>
+        var hub = new signalR.HubConnectionBuilder().withUrl("/Review").build();
+        hub.start().then(function () {
+            console.log("Connect Success");
+        });
+        hub.on("AddNewComment", function (name,cmnt,id) {
+
+            if (id == @Model.Id) {
+                $("#AllCmnt").append("</h3>" + name + ":" + cmnt + "</h3>");
+            }
+        });
+        function SendComment() {
+            let name = @ViewBag.UserName;
+           let cmnt = $("#cmnt").val();
+           let ID = @Model.Id;
+           console.log(name + ":" + cmnt);
+          hub.invoke("NewComment", name, cmnt, ID);
+          }
+      </script>
+}
